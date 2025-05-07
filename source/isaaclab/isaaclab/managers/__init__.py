@@ -23,14 +23,14 @@ from .manager_term_cfg import (
     ManagerTermBaseCfg,
     ObservationGroupCfg,
     ObservationTermCfg,
-    ConcatObservationTermCfg,
-    ConcatObservationGroupCfg,
+    # ConcatObservationTermCfg,
+    # ConcatObservationGroupCfg,
     RecorderTermCfg,
     RewardTermCfg,
     TerminationTermCfg,
 )
 from .observation_manager import ObservationManager
-from .concat_observation_manager import ConcatObservationManager
+# from .concat_observation_manager import ConcatObservationManager
 from .recorder_manager import DatasetExportMode, RecorderManager, RecorderManagerBaseCfg, RecorderTerm
 from .reward_manager import RewardManager
 from .scene_entity_cfg import SceneEntityCfg
