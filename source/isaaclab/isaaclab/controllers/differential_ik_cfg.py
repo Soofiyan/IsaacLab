@@ -18,7 +18,7 @@ class DifferentialIKControllerCfg:
     class_type: type = DifferentialIKController
     """The associated controller class."""
 
-    command_type: Literal["position", "pose"] = MISSING
+    command_type: Literal["position", "pose", "rotation"] = MISSING
     """Type of task-space command to control the articulation's body.
 
     If "position", then the controller only controls the position of the articulation's body.
@@ -52,7 +52,7 @@ class DifferentialIKControllerCfg:
 
     def __post_init__(self):
         # check valid input
-        if self.command_type not in ["position", "pose"]:
+        if self.command_type not in ["position", "pose", "rotation"]:
             raise ValueError(f"Unsupported inverse-kinematics command: {self.command_type}.")
         if self.ik_method not in ["pinv", "svd", "trans", "dls"]:
             raise ValueError(f"Unsupported inverse-kinematics method: {self.ik_method}.")
