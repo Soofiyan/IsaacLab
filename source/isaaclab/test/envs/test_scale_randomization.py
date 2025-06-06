@@ -1,3 +1,8 @@
+# Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers.
 # All rights reserved.
 #
@@ -11,7 +16,7 @@ from __future__ import annotations
 
 """Launch Isaac Sim Simulator first."""
 
-from isaaclab.app import AppLauncher, run_tests
+from isaaclab.app import AppLauncher
 
 # launch omniverse app
 app_launcher = AppLauncher(headless=True, enable_cameras=True)
@@ -355,7 +360,3 @@ class TestScaleRandomization(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             env = ManagerBasedEnv(cfg_failure)
             env.close()
-
-
-if __name__ == "__main__":
-    run_tests()
