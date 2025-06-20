@@ -3,11 +3,6 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-# Copyright (c) 2022-2025, The Isaac Lab Project Developers.
-# All rights reserved.
-#
-# SPDX-License-Identifier: BSD-3-Clause
-
 """Script to play a checkpoint if an RL agent from Stable-Baselines3."""
 
 """Launch Isaac Sim Simulator first."""
@@ -80,12 +75,14 @@ def main():
     )
     agent_cfg = load_cfg_from_registry(args_cli.task, "sb3_cfg_entry_point")
 
+    task_name = args_cli.task.split(":")[-1]
+
     # directory for logging into
-    log_root_path = os.path.join("logs", "sb3", args_cli.task)
+    log_root_path = os.path.join("logs", "sb3", task_name)
     log_root_path = os.path.abspath(log_root_path)
     # checkpoint and log_dir stuff
     if args_cli.use_pretrained_checkpoint:
-        checkpoint_path = get_published_pretrained_checkpoint("sb3", args_cli.task)
+        checkpoint_path = get_published_pretrained_checkpoint("sb3", task_name)
         if not checkpoint_path:
             print("[INFO] Unfortunately a pre-trained checkpoint is currently unavailable for this task.")
             return
